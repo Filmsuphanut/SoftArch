@@ -1,27 +1,27 @@
 import java.util.Scanner;
-import java.util.concurrent.Flow;
-import java.util.concurrent.Flow.Publisher;
 
 public class Main {
 
     public static void main(String[] args) {
 
         StringPublisher publisher = new StringPublisher();
-        StringSubscriber Al_subscriber = new AlphabetSubscriber();
-        StringSubscriber Nu_subscriber = new NumberSubscriber();
-        StringSubscriber Sym_subscriber = new SymbolSubscriber();
+        AlphabetSubscriber Al_subscriber = new AlphabetSubscriber();
+        NumberSubscriber Nu_subscriber = new NumberSubscriber();
+        SymbolSubscriber Sym_subscriber = new SymbolSubscriber();
 
         publisher.subscribe(Al_subscriber);
         publisher.subscribe(Nu_subscriber);
         publisher.subscribe(Sym_subscriber);
 
-        Scanner inp = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Enter Text");
+        //while (true){
+            Scanner inp = new Scanner(System.in);
+            System.out.println("Enter Text");
 
-        String Data = inp.nextLine();  // Read user input
-        System.out.println("Your text : " + Data);  // Output user input
+            String Data = inp.nextLine();
+            System.out.println("Your text : " + Data);
 
-        publisher.submitData(Data);
+            publisher.submitData(Data);
+        //}
 
     }
 }
